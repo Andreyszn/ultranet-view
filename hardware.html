@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraNet - Hardware Manage</title>
+    <link rel="stylesheet" href="css/hardware-styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2MzQ2QzYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+" alt="UltraNet">
+            <span>UltraNet</span>
+        </div>
+        <div class="nav-links">
+            <a href="shopping.html" class="nav-link">Shopping</a>
+            <a href="user.html" class="nav-link">Users manage</a>
+            <a href="hardware.html" class="nav-link active">Hardware manage</a>
+            <a href="index.html" class="nav-link" id="exitBtn">exit</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar with Robot -->
+        <div class="sidebar">
+            <h1 class="page-title">Hardware Manage</h1>
+            <div class="robot-container">
+                <div class="robot-frame">
+                    <div class="robot">
+                        <div class="robot-head">
+                            <div class="robot-eyes">
+                                <div class="eye left-eye"></div>
+                                <div class="eye right-eye"></div>
+                            </div>
+                            <div class="robot-mouth"></div>
+                        </div>
+                        <div class="robot-body">
+                            <div class="robot-chest"></div>
+                            <div class="robot-arms">
+                                <div class="arm left-arm"></div>
+                                <div class="arm right-arm"></div>
+                            </div>
+                        </div>
+                        <div class="robot-base"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© UltraNet. All rights reserved</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Search Bar -->
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Buscar por ID..." class="search-input">
+                <button id="searchBtn" class="search-btn">Buscar</button>
+                <button id="clearSearchBtn" class="clear-btn">Limpiar</button>
+            </div>
+
+            <!-- Hardware Options Form -->
+            <div class="hardware-options">
+                <h2>Hardware Options</h2>
+                <form id="hardwareForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="hardwareName">name</label>
+                            <input type="text" id="hardwareName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareType">type</label>
+                            <select id="hardwareType" name="type" required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="cpu">CPU</option>
+                                <option value="gpu">GPU</option>
+                                <option value="ram">RAM</option>
+                                <option value="storage">Storage</option>
+                                <option value="motherboard">Motherboard</option>
+                                <option value="psu">PSU</option>
+                                <option value="cooler">Cooler</option>
+                                <option value="case">Case</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareBrand">brand</label>
+                            <input type="text" id="hardwareBrand" name="brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareQuantity">quantity</label>
+                            <input type="number" id="hardwareQuantity" name="quantity" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareConnection">connection</label>
+                            <input type="text" id="hardwareConnection" name="conection" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwarePower">power</label>
+                            <input type="number" id="hardwarePower" name="power" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwarePrice">price</label>
+                            <input type="number" id="hardwarePrice" name="price" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareDescription">description</label>
+                            <textarea id="hardwareDescription" name="description" rows="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareCpuPort">cpuPort</label>
+                            <input type="text" id="hardwareCpuPort" name="cpuPort" placeholder="----">
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwarePciePort">pciePort</label>
+                            <input type="text" id="hardwarePciePort" name="pciePort" placeholder="----">
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareRamPort">ramPort</label>
+                            <input type="text" id="hardwareRamPort" name="ramPort" placeholder="----">
+                        </div>
+                        <div class="form-group">
+                            <label for="hardwareStoragePort">storagePort</label>
+                            <input type="text" id="hardwareStoragePort" name="storagePort" placeholder="-----">
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" id="addBtn" class="btn btn-add">add</button>
+                        <button type="button" id="cancelBtn" class="btn btn-cancel">cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Hardware List Table -->
+            <div class="hardware-list">
+                <h2>Hardware List</h2>
+                <div class="table-container">
+                    <table id="hardwareTable">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>type</th>
+                                <th>brand</th>
+                                <th>price</th>
+                                <th>quantity</th>
+                                <th>power</th>
+                                <th>connection</th>
+                                <th>description</th>
+                                <th>cpuPort</th>
+                                <th>pciePort</th>
+                                <th>ramPort</th>
+                                <th>storagePort</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hardwareTableBody">
+                            <!-- Hardware items will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmar eliminación</h3>
+            <p>¿Estás seguro de que deseas eliminar este hardware?</p>
+            <div class="modal-buttons">
+                <button id="confirmDelete" class="btn btn-delete">Eliminar</button>
+                <button id="cancelDelete" class="btn btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/hardware.js"></script>
+</body>
+</html>

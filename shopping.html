@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraNet - Shopping</title>
+    <link rel="stylesheet" href="css/shopping-styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2MzQ2QzYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+" alt="UltraNet">
+            <span>UltraNet</span>
+        </div>
+        <div class="nav-links">
+            <a href="shopping.html" class="nav-link active">Shopping</a>
+            <!-- CAMBIO AQUÍ: href="index.html" -> href="user.html" -->
+            <a href="user.html" class="nav-link">Users manage</a>
+            <a href="hardware.html" class="nav-link">Hardware manage</a>
+            <a href="index.html" class="nav-link" id="exitBtn">exit</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar with Robot -->
+        <div class="sidebar">
+            <h1 class="page-title">Shopping</h1>
+            <div class="robot-container">
+                <div class="robot-frame">
+                    <div class="robot">
+                        <div class="robot-head">
+                            <div class="robot-eyes">
+                                <div class="eye left-eye"></div>
+                                <div class="eye right-eye"></div>
+                            </div>
+                            <div class="robot-mouth"></div>
+                        </div>
+                        <div class="robot-body">
+                            <div class="robot-chest"></div>
+                            <div class="robot-arms">
+                                <div class="arm left-arm"></div>
+                                <div class="arm right-arm"></div>
+                            </div>
+                        </div>
+                        <div class="robot-base"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© UltraNet. All rights reserved</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Date and Purchase Controls -->
+            <div class="purchase-controls">
+                <div class="date-control">
+                    <label for="saleDate">Date</label>
+                    <input type="date" id="saleDate" class="date-input">
+                </div>
+                <div class="purchase-buttons">
+                    <button id="buyBtn" class="btn btn-buy">Buy</button>
+                    <button id="cancelBtn" class="btn btn-cancel">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Hardware Products Table -->
+            <div class="products-section">
+                <h2>Hardware Products</h2>
+                <div class="table-container">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>type</th>
+                                <th>brand</th>
+                                <th>price</th>
+                                <th>quantity</th>
+                                <th>description</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Products will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Shopping Cart Table -->
+            <div class="cart-section">
+                <h2>Shopping Cart</h2>
+                <div class="table-container">
+                    <table id="cartTable">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>type</th>
+                                <th>brand</th>
+                                <th>price</th>
+                                <th>quantity</th>
+                                <th>subtotal</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                            <!-- Cart items will be populated here -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="total-row">
+                                <td colspan="6"><strong>Total:</strong></td>
+                                <td class="total-amount" id="totalAmount">$0.00</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Quantity Modal -->
+    <div id="quantityModal" class="modal">
+        <div class="modal-content">
+            <h3>Select Quantity</h3>
+            <p>Available quantity: <span id="availableQuantity">0</span></p>
+            <div class="quantity-controls">
+                <button id="decreaseQty" class="qty-btn">-</button>
+                <input type="number" id="quantityInput" value="1" min="1" max="1">
+                <button id="increaseQty" class="qty-btn">+</button>
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmAddToCart" class="btn btn-add">Add to Cart</button>
+                <button id="cancelQuantity" class="btn btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Purchase</h3>
+            <p>Are you sure you want to complete this purchase?</p>
+            <div id="purchaseSummary"></div>
+            <div class="modal-buttons">
+                <button id="confirmPurchase" class="btn btn-buy">Confirm</button>
+                <button id="cancelPurchase" class="btn btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/shopping.js"></script>
+</body>
+</html>

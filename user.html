@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraNet - Users Manage</title>
+    <link rel="stylesheet" href="css/user-styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2MzQ2QzYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+" alt="UltraNet">
+            <span>UltraNet</span>
+        </div>
+        <div class="nav-links">
+            <a href="shopping.html" class="nav-link">Shopping</a>
+            <a href="user.html" class="nav-link active">Users manage</a>
+            <a href="hardware.html" class="nav-link">Hardware manage</a>
+            <a href="index.html" class="nav-link" id="exitBtn">exit</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar with Robot -->
+        <div class="sidebar">
+            <h1 class="page-title">Users Manage</h1>
+            <div class="robot-container">
+                <div class="robot">
+                    <div class="robot-head">
+                        <div class="robot-eyes">
+                            <div class="eye left-eye"></div>
+                            <div class="eye right-eye"></div>
+                        </div>
+                        <div class="robot-mouth"></div>
+                    </div>
+                    <div class="robot-body">
+                        <div class="robot-chest"></div>
+                        <div class="robot-arms">
+                            <div class="arm left-arm"></div>
+                            <div class="arm right-arm"></div>
+                        </div>
+                    </div>
+                    <div class="robot-base"></div>
+                </div>
+            </div>
+            <div class="copyright">© UltraNet. All rights reserved</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Search Bar -->
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Buscar por ID..." class="search-input">
+                <button id="searchBtn" class="search-btn">Buscar</button>
+                <button id="clearSearchBtn" class="clear-btn">Limpiar</button>
+            </div>
+
+            <!-- User Options Form -->
+            <div class="user-options">
+                <h2>User Options</h2>
+                <form id="userForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userName">name</label>
+                            <input type="text" id="userName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                           <label for="userPassword">Contraseña</label>
+                              <div style="position: relative; ">
+                                <input type="password" id="userPassword" name="password" required>
+                              <button type="button" class="btn-toggle-form-password" onclick="toggleFormPassword()" title="Mostrar/Ocultar contraseña" style="position: absolute; left: 180px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                                👁️
+                           </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userEmail">email</label>
+                            <input type="email" id="userEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userType">type</label>
+                            <select id="userType" name="type" required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="client">client</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" id="addBtn" class="btn btn-add">add</button>
+                        <button type="button" id="cancelBtn" class="btn btn-cancel">cancel</button>
+                    </div>
+                </form>
+            </div>
+            <!-- User List Table -->
+            <div class="user-list">
+                <h2>User List</h2>
+                <div class="table-container">
+                    <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>email</th>
+                                <th>type</th>
+                                <th>password</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Users will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmar eliminación</h3>
+            <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+            <div class="modal-buttons">
+                <button id="confirmDelete" class="btn btn-delete">Eliminar</button>
+                <button id="cancelDelete" class="btn btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/user.js"></script>
+</body>
+</html>
