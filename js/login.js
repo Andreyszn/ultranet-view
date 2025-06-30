@@ -1,5 +1,5 @@
 // Configuración de la API
-const API_BASE_URL = "https://ultranet-2ei6.onrender.com/hardwares"
+const API_BASE_URL = "https://ultranet-2ei6.onrender.com/user"
 
 // Elementos del DOM
 const loginForm = document.getElementById('loginForm');
