@@ -1,5 +1,5 @@
 // Configuración de la API
-const API_BASE_URL = 'http://localhost:8080/user';
+const API_BASE_URL = "https://ultranet-2ei6.onrender.com/hardwares"
 
 // Elementos del DOM
 const registerForm = document.getElementById('registerForm');

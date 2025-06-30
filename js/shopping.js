@@ -1,7 +1,8 @@
 // API Configuration
-const HARDWARE_API_URL = 'http://localhost:8080/store/listHardware'; // Corregida la URL
-const STORE_API_URL = 'http://localhost:8080/store';
-const USER_API_URL = 'http://localhost:8080/user';
+
+const HARDWARE_API_URL = 'https://ultranet-2ei6.onrender.com/store/listHardware';
+const STORE_API_URL = 'https://ultranet-2ei6.onrender.com/store';
+const USER_API_URL = 'https://ultranet-2ei6.onrender.com/user';
 
 // Global Variables
 let hardwareList = [];

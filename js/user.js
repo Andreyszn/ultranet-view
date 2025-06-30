@@ -1,5 +1,5 @@
 // Declare necessary variables and functions
-const API_BASE_URL = "http://localhost:8080/user" // API Configuration
+const API_BASE_URL = "https://ultranet-2ei6.onrender.com/user" // API Configuration
 
 let users = []
 let userToDelete = null
@@ -361,7 +361,7 @@ async function handleExit(event) {
   event.preventDefault()
   try {
     showLoading()
-    const response = await fetch("http://localhost:8080/user/exit", {
+    const response = await fetch("https://ultranet-2ei6.onrender.com/user/exit", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
